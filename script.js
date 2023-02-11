@@ -136,6 +136,4 @@ document.getElementById("btnBuscarInmueble").addEventListener("click", () => {
         document.querySelector('#estado').value = estado;
     }
 
-
-
 });
