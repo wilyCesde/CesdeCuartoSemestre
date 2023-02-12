@@ -74,11 +74,12 @@ const form = document.getElementById("formulario");
 form.addEventListener("submit", async(event) => {
     event.preventDefault();
 
-    const Idinmuebles = document.getElementById("Idinmueble").value;
+    const Idinmuebles = document.getElementById("Idinmuebles").value;
     const direccion = document.getElementById("direccion").value;
     const telefono = document.getElementById("telefono").value;
     const precio = document.getElementById("precio").value;
     const estado = document.getElementById("estado").value;
+    const tablaInmuebles = document.getElementById("tablaInmuebles").value;
 
     if (!Idinmuebles || !direccion || !precio) {
         alert("Todos los campos son obligatorios");
@@ -102,9 +103,19 @@ form.addEventListener("submit", async(event) => {
         }, 3000);
     });
 
-    alert("Inmueble agregado con éxito");
+    const nuevoInmueble = {
+        Idinmuebles: parseInt(Idinmuebles),
+        direccion: direccion,
+        telefono: telefono,
+        precio: parseInt(precio),
+        estado: estado,
+    };
 
-    //  agregar el inmueble al arreglo
+    inmuebles.push(nuevoInmueble);
+
+    console.log(inmuebles);
+    alert("Inmueble agregado con éxito");
+    return nuevoInmueble;
 });
 
 document.getElementById("btnBuscarInmueble").addEventListener("click", () => {
@@ -117,23 +128,34 @@ document.getElementById("btnBuscarInmueble").addEventListener("click", () => {
     }
 
     console.log(inmueble);
+
+    const { direccion, telefono, precio, estado } = inmueble;
+    document.querySelector("#direccion").value = direccion;
+    document.querySelector("#telefono").value = telefono;
+    document.querySelector("#precio").value = precio;
+    document.querySelector("#estado").value = estado;
 });
+document.getElementById("btnLimpiar").addEventListener("click", () => {
+    document.getElementById("Idinmuebles").value = "";
+    document.getElementById("direccion").value = "";
+    document.getElementById("telefono").value = "";
+    document.getElementById("precio").value = "";
+    document.getElementById("estado").value = "";
+    document.getElementById("tablaInmuebles") = "";
+});
+const listarInmuebles = () => {
+    const inmueblesDisponibles = inmuebles.filter(
+        (inmueble) => inmueble.estado === "disponible"
+    );
+    let tabla =
+        "<table><tr><th>ID</th><th>Dirección</th><th>Teléfono</th><th>Precio</th><th>Estado</th></tr>";
 
-document.getElementById("btnBuscarInmueble").addEventListener("click", () => {
-    const id = parseInt(document.getElementById("Idinmuebles").value);
-    const inmueble = inmuebles.find((inm) => inm.Idinmuebles === id);
-
-    if (inmueble != undefined) {
-        const {
-            direccion,
-            telefono,
-            precio,
-            estado
-        } = inmueble;
-        document.querySelector('#direccion').value = direccion;
-        document.querySelector('#telefono').value = telefono;
-        document.querySelector('#precio').value = precio;
-        document.querySelector('#estado').value = estado;
+    for (let i = 0; i < inmueblesDisponibles.length; i++) {
+        tabla += `<tr><td>${inmueblesDisponibles[i].Idinmuebles}</td><td>${inmueblesDisponibles[i].direccion}</td><td>${inmueblesDisponibles[i].telefono}</td><td>${inmueblesDisponibles[i].precio}</td><td>${inmueblesDisponibles[i].estado}</td></tr>`;
     }
-
-});
+    tabla += "</table>";
+    document.getElementById("tablaInmuebles").innerHTML = tabla;
+};
+document
+    .getElementById("btnListarInmuebles")
+    .addEventListener("click", listarInmuebles);
