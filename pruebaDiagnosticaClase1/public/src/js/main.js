@@ -148,7 +148,7 @@ const listarInmuebles = () => {
         (inmueble) => inmueble.estado === "disponible"
     );
     let tabla =
-        "<table><tr><th>ID</th><th>Dirección</th><th>Teléfono</th><th>Precio</th><th>Estado</th></tr>";
+        "<table class='table table-striped my-5'><tr><th>ID</th><th>Dirección</th><th>Teléfono</th><th>Precio</th><th>Estado</th></tr>";
 
     for (let i = 0; i < inmueblesDisponibles.length; i++) {
         tabla += `<tr><td>${inmueblesDisponibles[i].Idinmuebles}</td><td>${inmueblesDisponibles[i].direccion}</td><td>${inmueblesDisponibles[i].telefono}</td><td>${inmueblesDisponibles[i].precio}</td><td>${inmueblesDisponibles[i].estado}</td></tr>`;
