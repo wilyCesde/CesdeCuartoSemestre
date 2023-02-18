@@ -33,41 +33,6 @@ const inmuebles = [{
         precio: 400000000,
         estado: "disponible",
     },
-    {
-        Idinmuebles: 6,
-        direccion: "Calle 161718",
-        telefono: "6789012",
-        precio: 450000000,
-        estado: "disponible",
-    },
-    {
-        Idinmuebles: 7,
-        direccion: "Calle 192021",
-        telefono: "7890123",
-        precio: 500000000,
-        estado: "no disponible",
-    },
-    {
-        Idinmuebles: 8,
-        direccion: "Calle 222324",
-        telefono: "8901234",
-        precio: 550000000,
-        estado: "disponible",
-    },
-    {
-        Idinmuebles: 9,
-        direccion: "Calle 252627",
-        telefono: "9012345",
-        precio: 600000000,
-        estado: "disponible",
-    },
-    {
-        Idinmuebles: 10,
-        direccion: "Calle 282930",
-        telefono: "0123456",
-        precio: 650000000,
-        estado: "disponible",
-    },
 ];
 
 const form = document.getElementById("formulario");
