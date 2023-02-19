@@ -1,4 +1,3 @@
-# reto numero uno: recibir numero y determinar multiplo de 5
 print("Digite en numero para determinar si es multiplo de 5")
 print("")
 numero = int(input("Digite el numero que a determinar: "))

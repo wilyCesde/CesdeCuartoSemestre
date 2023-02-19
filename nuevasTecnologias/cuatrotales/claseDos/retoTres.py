@@ -1,4 +1,3 @@
-# Determinar cual numero es mayor de los dos valores ingresado
 valorUno = int(input("Digite el primer valor (1-9): "))
 valorDos = int(input("Digite el segundo valor (1-9): "))
 
