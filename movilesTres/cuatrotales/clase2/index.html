@@ -5,27 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inmuebles</title>
+    <!-- bootstrap -->
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <!-- stylePersonal -->
+    <link rel="stylesheet" href="src/css/style.css" />
   </head>
   <body>
     <div class="container">
       <h1>Actualización de Inmuebles</h1>
-      <form id="formInmuebles">
-        <div class="alert d-none" role="alert" id="alert"></div>
+      <form>
+        <div class="alert d-none" role="alert" id="alerta"></div>
         <div>
-          <label for="idInmueble">Id. Inmueble</label>
+          <label for="idinmueble">Id. Inmueble</label>
           <input
             type="text"
-            id="idInmueble"
+            id="idinmueble"
             placeholder="Ingrese id inmueble"
             class="form-control"
           />
-          <span id="messageIdInmueble" style="color: red"></span>
+          <span id="midinmueble" style="color: red"></span>
         </div>
         <div>
           <label for="direccion">Dirección</label>
@@ -35,7 +38,7 @@
             placeholder="Ingrese dirección inmueble"
             class="form-control"
           />
-          <span id="messageDireccion" style="color: red"></span>
+          <span id="mdireccion" style="color: red"></span>
         </div>
         <div>
           <label for="telefono">Teléfono</label>
@@ -45,7 +48,7 @@
             placeholder="Ingrese teléfono del inmueble"
             class="form-control"
           />
-          <span id="messageTelefono" style="color: red"></span>
+          <span id="mtelefono" style="color: red"></span>
         </div>
         <div>
           <label for="precio">Precio</label>
@@ -55,7 +58,7 @@
             placeholder="Ingrese precio del inmueble"
             class="form-control"
           />
-          <span id="messagePrecio" style="color: red"></span>
+          <span id="mprecio" style="color: red"></span>
         </div>
         <div>
           <label for="estado">Estado</label>
@@ -71,7 +74,7 @@
           <input
             class="form-check-input"
             type="radio"
-            id="noDisponible"
+            id="nodisponible"
             name="estado"
           />No Disponible
         </div>
@@ -87,12 +90,20 @@
             Listar
           </button>
         </div>
+        <div id="listado" style="background-color: powderblue"></div>
       </form>
     </div>
+    <!-- jsInmuebles -->
     <script src="src/js/main.js"></script>
+    <!-- bootstrap -->
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
     ></script>
   </body>

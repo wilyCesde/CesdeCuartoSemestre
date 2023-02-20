@@ -1,148 +1,131 @@
-//#region Atributos
+// Generar el arreglo de objetos
 let inmuebles = [
   {
-    idInmueble: "00",
-    direccion: "Cl 9a",
-    telefono: "31282838889",
-    precio: 220000000,
+    idinmueble: 1,
+    direccion: "Calle 4 # 4-4",
+    telefono: "34343434",
+    precio: 250,
     estado: true,
   },
   {
-    idInmueble: "01",
-    direccion: "Cl 9a",
-    telefono: "31282838889",
-    precio: 280000000,
+    idinmueble: 2,
+    direccion: "Carrera 4 # 4-4",
+    telefono: "8522222",
+    precio: 350,
+    estado: true,
+  },
+  {
+    idinmueble: 3,
+    direccion: "Calle 40 # 40-40",
+    telefono: "5454546",
+    precio: 150,
     estado: false,
   },
   {
-    idInmueble: "02",
-    direccion: "Cl 9a",
-    telefono: "31282838889",
-    precio: 300000000,
+    idinmueble: 4,
+    direccion: "Transv 4 # 14-41",
+    telefono: "121212",
+    precio: 180,
     estado: true,
   },
   {
-    idInmueble: "03",
-    direccion: "Cl 9a",
-    telefono: "31282838889",
-    precio: 200000000,
+    idinmueble: 5,
+    direccion: "Calle 49 # 49-49",
+    telefono: "34343434",
+    precio: 270,
     estado: false,
-  },
-  {
-    idInmueble: "04",
-    direccion: "Cl 9a",
-    telefono: "31282838889",
-    precio: 250000000,
-    estado: true,
   },
 ];
-
-//alerta
-const alerta = document.getElementById("alert");
-
-//form
-const formInmuebles = document.getElementById("formInmuebles");
-
-const idInmueble = document.getElementById("idInmueble");
-const messageIdInmueble = document.getElementById("messageIdInmueble");
-
-const direccion = document.getElementById("direccion");
-const messageDireccion = document.getElementById("messageDireccion");
-
-const telefono = document.getElementById("telefono");
-const messageTelefono = document.getElementById("messageTelefono");
-
-const precio = document.getElementById("precio");
-const messagePrecio = document.getElementById("messagePrecio");
-
-const disponible = document.getElementById("disponible");
-const noDisponible = document.getElementById("noDisponible");
-
-// buttons
-const enviar = document.getElementById("enviar");
-const buscar = document.getElementById("buscar");
-const listar = document.getElementById("listar");
-//#endregion
-
-//#region eventos
-// window.addEventListener("keydown", (e) => {
-//   if (e.key === "Enter") {
-//     if (idInmueble.value != "") {
-//       direccion.focus();
-//     }
-//     if (direccion.value != "") {
-//       telefono.focus();
-//     }
-//     if (telefono.value != "") {
-//       precio.focus();
-//     }
-//     if (precio.value != "") {
-//       disponible.focus();
-//     }
-//   }
-// });
-// idInmueble
-idInmueble.addEventListener("focus", function () {
-  MessageIdInmueble.textContent = "El id del inmueble es obligatorio";
+// Referenciar elementos de html
+let idinmueble = document.getElementById("idinmueble");
+let midinmueble = document.querySelector("#midinmueble");
+let direccion = document.getElementById("direccion");
+let mdireccion = document.querySelector("#mdireccion");
+let telefono = document.getElementById("telefono");
+let mtelefono = document.querySelector("#mtelefono");
+let precio = document.getElementById("precio");
+let mprecio = document.querySelector("#mprecio");
+let disponible = document.getElementById("disponible");
+let nodisponible = document.querySelector("#nodisponible");
+let enviar = document.getElementById("enviar");
+let buscar = document.getElementById("buscar");
+let listar = document.getElementById("listar");
+let alerta = document.getElementById("alerta");
+let listado = document.getElementById("listado");
+// Eventos
+idinmueble.addEventListener("focus", function () {
+  midinmueble.textContent = "Id. inmueble es obligatorio *";
 });
-
-idInmueble.addEventListener("blur", function () {
-  MessageIdInmueble.textContent = "";
+idinmueble.addEventListener("blur", function () {
+  midinmueble.textContent = "";
 });
-
-//direccion
 direccion.addEventListener("focus", function () {
-  Messagedireccion.textContent = "La direccion";
+  mdireccion.textContent = "Dirección es obligatoria *";
 });
-
 direccion.addEventListener("blur", function () {
-  Messagedireccion.textContent = "";
+  mdireccion.textContent = "";
 });
-
-//telefono
 telefono.addEventListener("focus", function () {
-  Messagetelefono.textContent = "La telefono";
+  mtelefono.textContent = "El teléfono es obligatorio *";
 });
-
 telefono.addEventListener("blur", function () {
-  Messagetelefono.textContent = "";
+  mtelefono.textContent = "";
 });
-
-//precio
 precio.addEventListener("focus", function () {
-  Messageprecio.textContent = "La precio";
+  mprecio.textContent = "El precio es obligatorio *";
 });
-
-precio.addEventListener("blur", function () {
-  Messageprecio.textContent = "";
+precio.addEventListener("blur", () => {
+  mprecio.textContent = "";
 });
-
-// buttons
 // Enviar
 enviar.addEventListener("click", () => {
-  let result = inmuebles.find((item) => item.idInmueble === idInmueble.value);
-  if (!result) {
-    inmuebles.push({
-      idInmueble: idInmueble.value,
-      direccion: direccion.value,
-      telefono: telefono.value,
-      precio: precio.value,
-      estado: disponible.checked,
-    });
-    alerta.classList.remove("d-none");
-    alerta.classList.remove("alert-warning");
-    alerta.classList.add("alert-success");
-    alerta.textContent = "Inmueble guardado correctamente";
-    console.log(inmuebles);
-  } else {
-    alerta.classList.remove("d-none");
-    alerta.classList.remove("alert-success");
-    alerta.classList.add("alert-warning");
-    alerta.textContent = "Inmueble existente";
-  }
-
+  alerta.classList.remove("d-none");
+  consid = inmuebles[inmuebles.length - 1].idinmueble + 1;
+  inmuebles.push({
+    idinmueble: consid,
+    direccion: direccion.value,
+    telefono: telefono.value,
+    precio: precio.value,
+    estado: disponible.checked,
+  });
+  alerta.classList.add("alert-success");
+  alerta.textContent = "Inmueble guardado correctamente ...";
   setTimeout(() => {
     alerta.classList.add("d-none");
-  }, 5000);
+  }, 3000);
+  idinmueble.value = consid;
 });
-//#endregion
+// Buscar
+buscar.addEventListener("click", () => {
+  let inmBuscar = inmuebles.find(
+    (inm) => inm.idinmueble == idinmueble.value
+  );
+  if (inmBuscar != undefined) {
+    direccion.value = inmBuscar.direccion;
+    telefono.value = inmBuscar.telefono;
+    precio.value = inmBuscar.precio;
+    inmBuscar.estado
+      ? (disponible.checked = true)
+      : (nodisponible.checked = true);
+  } else {
+    alerta.classList.remove("d-none");
+    alerta.classList.add("alert-danger");
+    alerta.textContent = "Id inmueble NO Existe ...";
+    setTimeout(() => {
+      alerta.classList.remove("alert-danger");
+      alerta.classList.add("d-none");
+    }, 3000);
+  }
+});
+listar.addEventListener("click", () => {
+  // Recorrer el arreglo de objetos y crear una variable para almacenar todos los objetos de este
+  let linmuebles = "";
+  inmuebles.map((inm) => {
+    linmuebles += `${inm.idinmueble} - ${inm.direccion} - ${
+      inm.telefono
+    } - ${inm.precio} - ${
+      inm.estado ? "Disponible" : "No Disponible"
+    }<br>`;
+  });
+  listado.innerHTML = linmuebles;
+});
